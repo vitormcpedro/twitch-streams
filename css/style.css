@@ -1,0 +1,37 @@
+.main {
+  min-width: 450px;
+  max-width: 700px;
+}
+
+.title {
+  font-size: 50px;
+  font-family: 'Love Ya Like A Sister', cursive;
+}
+
+.logo {
+  padding: 10px 0px;
+}
+
+.channelEntry {
+  border-bottom: solid 1px;
+  border-color: Gainsboro ;
+  height: 70px;
+}
+
+.alerts {
+  margin-top: 5px;
+}
+
+.vertical-centered {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.channelImage {
+  height: 50px;
+}
+
+.stream_list {
+  margin: 0 10px;
+}
