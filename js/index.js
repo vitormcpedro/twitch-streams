@@ -1,5 +1,4 @@
 var channelList = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas","brunofin","comster404"];
-
 var channelInfo = [];
 
 function clearChannelList() {
@@ -38,7 +37,7 @@ function getAllStreams() {
         return;
       }
       
-
+      // Channel is offline
       if(data.stream == null) {
         var string = data["_links"].channel;
         var idx = string.lastIndexOf("/") + 1;
@@ -47,6 +46,13 @@ function getAllStreams() {
         var channelURL = "https://wind-bow.gomix.me/twitch-api/channels/" + name + "?callback=?";
         $.getJSON(channelURL, function(channelData) {
           
+          console.log(JSON.stringify(channelData));
+          
+          if(channelData.hasOwnProperty("error")) {
+            displayAlert(channelData.message);
+            return;
+          }
+
           var newChannel = {
             displayName: channelData.display_name,
             status: "offline",
@@ -62,7 +68,7 @@ function getAllStreams() {
         return;
       } 
       
-      // If channel is streaming:
+      // Channel is streaming:
       var newChannel = {
         displayName: data.stream.channel.display_name,
         status: "online",
