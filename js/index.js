@@ -28,7 +28,7 @@ function displayAlert(message) {
 
 function getAllStreams() {
   for (var i = 0; i < channelList.length; i++) { 
-    var url = "https://wind-bow.hyperdev.space/twitch-api/streams/" + channelList[i] + "?callback=?";
+    var url = "https://wind-bow.gomix.me/twitch-api/streams/" + channelList[i] + "?callback=?";
     $.getJSON(url, function(data) {
       
       console.log(JSON.stringify(data));
@@ -44,7 +44,7 @@ function getAllStreams() {
         var idx = string.lastIndexOf("/") + 1;
         var name = string.substr(idx, string.length);
         
-        var channelURL = "https://wind-bow.hyperdev.space/twitch-api/channels/" + name + "?callback=?";
+        var channelURL = "https://wind-bow.gomix.me/twitch-api/channels/" + name + "?callback=?";
         $.getJSON(channelURL, function(channelData) {
           
           var newChannel = {
